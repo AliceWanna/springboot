@@ -1,0 +1,95 @@
+spring:
+  mvc:
+#    static-path-pattern: /boot/**
+    hiddenmethod:
+      filter:
+        enabled: true
+    contentnegotiation:
+      favor-parameter: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 10000MB
+  datasource:
+    url: jdbc:mysql://localhost:3306/boot_database?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+    username: root
+
+    druid:
+      aop-patterns: com.gt.*
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+        session-stat-enable: true
+
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: alice
+        login-password: wanna
+
+      filters: stat,wall
+
+      filter:
+        stat: # 对上面filters里面的stat的详细配置
+          slow-sql-millis: 1000
+          logSlowSql: true
+          enabled: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+#  resources:
+#    static-locations: [classpath:/html/]
+server:
+  port: 8080
+
+mybatis-plus:
+  type-aliases-package: com.gt.bean
+  configuration:
+    map-underscore-to-camel-case: true
+#mybatis
+#mybatis:
+##  config-location: classpath:mybatis/mybatis-config.xml
+#  mapper-locations: classpath:mybatis/mapper/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#  type-aliases-package: com.gt.bean
+##  private Map<String, List<Pet>> allPets;
+user:
+  userName: 李飞
+  boss: true
+  birth: 2021/4/7
+  age: 18
+  pet:
+    name: 小红
+    weight: 55.55
+  interests:
+    - 下棋
+    - 吃饭
+    - 打球
+  animal: [许飞,飞机,机长,长辈]
+  score:
+    #  {n: 45,l: 75}
+    math: 12
+    english:
+      listen: 120
+      write: 75
+    chinese:
+      - 75
+      - 54
+      - 58
+      - 78
+    other: [124,235,1857]
+  salarys: [12,21,111,345]
+  allPets:
+    sick:
+      - {name: 梨花,weight: 56.55}
+      - name: 丽妃
+        weight: 44.555
+    health:
+      - {name: 梨花,weight: 56.55}
+      - name: 丽妃
+        weight: 44.555

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h1>你好</h1>
+
+  requestBody注解<br/>
+  <form action="/save" method="post">
+      姓名<input name="username" type="text">
+      性别<input type="text" name="sex">
+      年龄<input type="text" name="age">
+      <input type="submit">
+  </form>
+
+
+  <form method="get" action="/user">
+    GET请求<input type="submit">
+  </form>
+
+  <form method="post" action="/user">
+    POST请求<input type="submit">
+  </form>
+
+  <form method="post" action="/user">
+<!--    <input type="hidden" name="_method" value="PUT">-->
+    <input type="hidden" name="_m" value="PUT">
+    PUT请求<input type="submit">
+  </form>
+
+  <form method="post" action="/user">
+    <input type="hidden" name="_method" value="DELETE">
+    DELETE请求<input type="submit">
+  </form>
+
+</body>
+</html>
