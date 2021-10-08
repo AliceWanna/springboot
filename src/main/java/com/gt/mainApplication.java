@@ -1,5 +1,6 @@
 package com.gt;
 
+import com.gt.bean.Pet;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,5 +14,7 @@ public class mainApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(mainApplication.class, args);
+        Pet pet1 = run.getBean("pet1", Pet.class);
+        System.out.println(pet1);
     }
 }

@@ -30,6 +30,12 @@ public class WebConfig{
 
 
     @Bean
+    public Pet pet1(){
+        return new Pet("tom",12);
+    }
+
+
+    @Bean
     public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
         HiddenHttpMethodFilter httpMethodFilter = new HiddenHttpMethodFilter();
         httpMethodFilter.setMethodParam("_m");
