@@ -19,11 +19,13 @@ public class springUtilsTestController {
     @GetMapping("/context")
     public Pet getPet(){
         if(!ObjectUtils.isEmpty(context)){
-            String[] names = context.getBeanDefinitionNames();
-            for(String name: names){
-                System.out.println(name);
-            }
-            return context.getBean("pet1",Pet.class);
+//            String[] names = context.getBeanDefinitionNames();
+//            for(String name: names){
+//                System.out.println(name);
+//            }
+            Pet pet1 = context.getBean("pet1", Pet.class);
+            System.out.println(pet1.getClass());
+            return pet1;
         }
         return null;
     }

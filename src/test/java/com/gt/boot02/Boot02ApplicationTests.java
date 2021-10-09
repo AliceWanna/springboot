@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import redis.clients.jedis.Jedis;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -33,6 +34,13 @@ class Boot02ApplicationTests {
 
     @Autowired
     userMapper userMapper;
+
+    @Test
+    void test05() {
+        Jedis jedis = new Jedis("192.168.88.88",6379);
+        jedis.auth("alicewanna");
+        jedis.ping();
+    }
 
     @Test
     void test04() {
