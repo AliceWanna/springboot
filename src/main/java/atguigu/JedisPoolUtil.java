@@ -1,4 +1,4 @@
-package com.gt.Utils;
+package atguigu;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -20,8 +20,8 @@ public class JedisPoolUtil {
 					poolConfig.setMaxWaitMillis(100*1000);
 					poolConfig.setBlockWhenExhausted(true);
 					poolConfig.setTestOnBorrow(true);  // ping  PONG
-
-					jedisPool = new JedisPool(poolConfig, "192.168.88.88", 6379, 60000,"alicewanna" );
+				 
+					jedisPool = new JedisPool(poolConfig, "192.168.44.168", 6379, 60000 );
 				}
 			}
 		}

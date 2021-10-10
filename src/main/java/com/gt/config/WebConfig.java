@@ -1,6 +1,5 @@
 package com.gt.config;
 
-import com.gt.HandlerInterceptor.LoginInterceptor;
 import com.gt.bean.Pet;
 import com.gt.converter.aliceConverter;
 import com.gt.converter.wannaConverter;
@@ -15,7 +14,6 @@ import org.springframework.web.accept.HeaderContentNegotiationStrategy;
 import org.springframework.web.accept.ParameterContentNegotiationStrategy;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.util.UrlPathHelper;
@@ -46,11 +44,11 @@ public class WebConfig{
     public WebMvcConfigurer webMvcConfigurer(){
         return new WebMvcConfigurer() {
 
-            @Override
-            public void addInterceptors(InterceptorRegistry registry) {
-                WebMvcConfigurer.super.addInterceptors(registry);
-                registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/","/login","/css/**","/fonts/**","/images/**","/js/**"); //放行的请求
-            }
+//            @Override
+//            public void addInterceptors(InterceptorRegistry registry) {
+//                WebMvcConfigurer.super.addInterceptors(registry);
+//                registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/**").excludePathPatterns("/","/login","/css/**","/fonts/**","/images/**","/js/**"); //放行的请求
+//            }
 
             //ContentNegotiationStrategy
             @Override

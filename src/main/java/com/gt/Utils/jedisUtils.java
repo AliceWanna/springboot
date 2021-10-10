@@ -9,22 +9,23 @@ import java.util.Properties;
 
 public class jedisUtils {
 
-    private static Jedis jedis;
+    private static Properties pros;
     static {
-        InputStream is = jedisUtils.class.getClassLoader().getResourceAsStream("jedis.properties");
-        Properties pros = new Properties();
+        InputStream is = jedisUtils.class.getClassLoader().getResourceAsStream("static/redis/jedis.properties");
+        pros = new Properties();
         try {
             pros.load(is);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+    }
+    public static Jedis getJedis(){
         String ip = pros.getProperty("ip");
         int port = Integer.parseInt(pros.getProperty("port"));
         String auth = pros.getProperty("auth");
-        jedis = new Jedis(ip,port);
+        Jedis jedis = new Jedis(ip,port);
         jedis.auth(auth);
-    }
-    public static Jedis getJedis(){
         return jedis;
     }
 
