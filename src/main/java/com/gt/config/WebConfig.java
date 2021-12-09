@@ -41,6 +41,7 @@ public class WebConfig{
     }
 
     @Bean
+//    @Order(-1)
     public WebMvcConfigurer webMvcConfigurer(){
         return new WebMvcConfigurer() {
 

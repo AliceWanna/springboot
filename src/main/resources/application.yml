@@ -50,15 +50,18 @@ spring:
     lettuce:
       pool:
         max-active: 10
+    cluster:
+      nodes: 192.168.88.88:6379,192.168.88.88:6380,192.168.88.88:6381,192.168.88.88:6389,192.168.88.88:6390,192.168.88.88:6391
+
 #  resources:
 #    static-locations: [classpath:/html/]
 server:
   port: 8080
 
+
 mybatis-plus:
   type-aliases-package: com.gt.bean
-  configuration:
-    map-underscore-to-camel-case: true
+
 #mybatis
 #mybatis:
 ##  config-location: classpath:mybatis/mybatis-config.xml
